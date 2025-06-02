@@ -1,0 +1,50 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- 24hr toggle button -->
+    <div class="toggle-container">
+      <label class="switch">
+        <input type="checkbox" id="formatToggle" />
+        <span class="slider"></span>
+      </label>
+      <span class="toggle-label" style="color: #0090ad">24-Hour Format</span>
+    </div>
+    <!-- time -->
+    <div class="time">
+      <div class="circle" style="--clr: #fe8000">
+        <div class="dots hr-dots"></div>
+        <svg>
+          <circle cx="70" cy="70" r="70" />
+          <circle cx="70" cy="70" r="70" class="hr" />
+        </svg>
+        <div class="hours">00</div>
+      </div>
+
+      <div class="circle" style="--clr: #006622">
+        <div class="dots min-dots"></div>
+        <svg>
+          <circle cx="70" cy="70" r="70" />
+          <circle cx="70" cy="70" r="70" class="min" />
+        </svg>
+        <div class="minutes">00</div>
+      </div>
+      <div class="circle" style="--clr: #ff9999">
+        <div class="dots sec-dots"></div>
+        <svg>
+          <circle cx="70" cy="70" r="70" />
+          <circle cx="70" cy="70" r="70" class="sec" />
+        </svg>
+        <div class="seconds">00</div>
+      </div>
+      <div class="meridiem">
+        <div class="ampm">AM</div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
