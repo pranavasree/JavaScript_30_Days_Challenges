@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip Calculator</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="heading">
+        <h2>💸 Tip Calculator</h2>
+      </div>
+
+      <div class="container">
+        <div class="title">Bill Total</div>
+        <div class="inputContainer">
+          <span>$</span>
+          <input
+            type="number"
+            min="0"
+            step="0.01"
+            id="billTotalInput"
+            placeholder="0.00"
+            oninput="calculateBill()"
+          />
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="title">Tip (%)</div>
+        <div class="inputContainer">
+          <span>%</span>
+          <input
+            type="number"
+            min="0"
+            id="tipInput"
+            placeholder="10"
+            oninput="calculateBill()"
+          />
+        </div>
+      </div>
+
+      <div class="container" id="bottom">
+        <div class="splitContainer">
+          <div class="title">People</div>
+          <div class="controls">
+            <button class="splitButton" onclick="decreasePeople()">−</button>
+            <span class="splitAmount" id="numberOfPeople">1</span>
+            <button class="splitButton" onclick="increasePeople()">+</button>
+          </div>
+        </div>
+
+        <div class="totalContainer">
+          <div class="title">Total per Person</div>
+          <div class="total" id="perPersonTotal">$0.00</div>
+        </div>
+      </div>
+
+      <div class="totalbillcontainer">
+        <div class="title">Total Bill (with Tip) :</div>
+        <div class="totalBill" id="totalBillDisplay">$0.00</div>
+      </div>
+
+      <div class="buttonRow">
+        <button class="resetButton" onclick="resetCalculator()">Reset</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

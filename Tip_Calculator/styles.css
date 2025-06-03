@@ -1,0 +1,174 @@
+* {
+  font-family: "M PLUS Rounded 1c", Avenir Next, Helvetica, sans-serif;
+  box-sizing: border-box;
+  color: #ffffff;
+}
+
+body {
+  background: linear-gradient(to right, #1f1c2c, #928dab);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.wrapper {
+  background: #292c4c;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.heading h2 {
+  color: #fca4c5;
+  font-size: 1.7rem;
+}
+
+.container {
+  margin-top: 1.2rem;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: #ffe3f2;
+}
+
+.inputContainer {
+  background: #3e416b;
+  border-radius: 1rem;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  align-items: center;
+}
+
+input[type="number"] {
+  font-size: 1.1rem;
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin-left: 0.4rem;
+  color: #ffffff;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.splitButton {
+  background: #ff729f;
+  border: none;
+  color: white;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.splitButton:hover {
+  background: #ff8db3;
+}
+
+.splitAmount {
+  font-size: 1.5rem;
+}
+
+#bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.totalContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.totalbillcontainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.total {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fba6c3;
+}
+
+.totalBill {
+  text-align: right;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffd6e6;
+}
+
+.buttonRow {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.resetButton {
+  background-color: #ff5b8d;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.resetButton:hover {
+  background-color: #ff86aa;
+}
+
+/* Responsive */
+@media (max-width: 420px) {
+  .wrapper {
+    width: 90%;
+    padding: 1.2rem;
+  }
+
+  .total {
+    font-size: 1.6rem;
+  }
+
+  .splitAmount {
+    font-size: 1.3rem;
+  }
+
+  .title {
+    font-size: 0.85rem;
+  }
+
+  input[type="number"] {
+    font-size: 1rem;
+  }
+
+  .splitButton {
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 1rem;
+  }
+}
