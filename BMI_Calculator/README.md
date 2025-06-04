@@ -16,10 +16,6 @@ A responsive and interactive BMI (Body Mass Index) Calculator built using **HTML
 - ✅ Reset button to clear all fields and outputs
 - ✅ Responsive design for mobile and desktop
 
-## 📸 Screenshots
-
-> Replace these with your actual screenshots
-
 | US Units    | Metric Units    | Gauge Visualization |
 | ----------- | --------------- | ------------------- |
 | ![US Units] | ![Metric Units] | ![Gauge]            |
@@ -70,10 +66,10 @@ bmi-calculator-app/
 If you have any suggestions or feedback, feel free to connect!
 
 - 🌐 [LinkedIn](https://linkedin.com/in/your-profile)
-- 🐙 [GitHub](https://github.com/yourusername)
+- 🐙 [GitHub](https://github.com/pranavasree)
 
 ---
 
 ### 📝 License
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is create with ❤️ and open-source.
