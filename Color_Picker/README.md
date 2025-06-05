@@ -13,7 +13,7 @@ A clean and responsive web app that lets users pick colors using a visual color 
 3. **Saved Colors Palette**  
    Save up to 5 favorite colors. Clicking an existing saved color will update it with the currently selected one.
 
-## Walkthrough Video
+## 🖼 Walkthrough Video
 
 <image src="preview.gif" width="100%" height="100%">
 
