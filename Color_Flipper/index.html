@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Picker App</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎨 Color Picker App</h1>
+
+      <div class="button-group">
+        <button onclick="showSection('color')">🎨 Color Picker</button>
+        <button onclick="showSection('image')">🖼️ Image Color Picker</button>
+      </div>
+
+      <!-- Color Picker Section -->
+      <div id="colorPickerSection" class="section">
+        <div class="select">
+          <h2>Select a Color</h2>
+          <input type="color" id="colorInput" />
+        </div>
+
+        <div class="color-picker-layout">
+          <div class="selected-display">
+            <h3>Selected Color</h3>
+            <div class="color-box large" id="selectedColorBox"></div>
+            <p><strong>HEX:</strong> <span id="hexOutput">#000000</span></p>
+            <p><strong>RGB:</strong> <span id="rgbOutput">rgb(0, 0, 0)</span></p>
+            <!-- <p><strong>Name:</strong> <span id="colorNameOutput">Unknown Color</span></p> ✅ Here -->
+          </div>
+          
+          
+          <div id="toastContainer"></div>
+          
+
+          <div class="saved-colors-container">
+            <h3>Saved Colors</h3>
+            <div class="saved-colors" id="savedColorsContainer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Picker Section -->
+      <div id="imagePickerSection" class="section">
+        <h2>Upload an Image</h2>
+        <div class="canvas-input">
+          <div class="in-out">
+            <input type="file" id="imageUpload" accept="image/*" />
+            <div class="selected-color-display">
+              <div class="color-box" id="imgColorPreview"></div>
+              <div>
+                <p><strong>HEX:</strong> <span id="imgHexOutput">-</span></p>
+                <p><strong>RGB:</strong> <span id="imgRgbOutput">-</span></p>
+             
+              </div>
+            </div>
+          </div>
+          <div>
+            <canvas id="imageCanvas"></canvas>
+            <p>Click on the image to pick a color.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/color-name-list@8.0.0/dist/colornames.min.js"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
