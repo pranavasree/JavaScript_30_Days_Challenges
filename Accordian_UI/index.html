@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glassmorphic Accordion</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="accordion-container">
+      <div class="accordion-item theme-red">
+        <button class="accordion-header">
+          What is lorem ipsum?
+          <span class="icon">&#9662;</span>
+        </button>
+        <div class="accordion-body">
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion-item theme-blue">
+        <button class="accordion-header">
+          Where does it come from?
+          <span class="icon">&#9662;</span>
+        </button>
+        <div class="accordion-body">
+          <p>
+            It has roots in a piece of classical Latin literature from 45 BC.
+          </p>
+
+          <!-- Nested Accordion -->
+          <div class="accordion-container nested">
+            <div class="accordion-item theme-cyan">
+              <button class="accordion-header">
+                Nested: Who created it?
+                <span class="icon">&#9662;</span>
+              </button>
+              <div class="accordion-body">
+                <p>
+                  Richard McClintock, a Latin professor at Hampden-Sydney
+                  College.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item theme-yellow">
+        <button class="accordion-header">
+          Why do we use it?
+          <span class="icon">&#9662;</span>
+        </button>
+        <div class="accordion-body">
+          <p>
+            It is a long established fact that a reader will be distracted by
+            the readable content.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion-item theme-cyan">
+        <button class="accordion-header">
+          Where can I get some?
+          <span class="icon">&#9662;</span>
+        </button>
+        <div class="accordion-body">
+          <p>You can find it on websites like lipsum.com or loremipsum.io.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
