@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Popup Modal Box</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  </head>
+  <body>
+    <div class="toast" id="toast">✅ Message sent successfully!</div>
+
+    <section>
+      <div class="profile">
+        <div class="profile-img">
+          <img src="profile.jpg" alt="Profile Image" />
+        </div>
+        <span class="name">Pranu</span>
+        <span class="profession" id="typing"></span>
+        <div id="hireBtn" class="button">
+          <i class="bx bxs-envelope"></i>
+          <button>Hire me</button>
+        </div>
+      </div>
+
+      <!-- popup box -->
+      <div class="popup-outer">
+        <div class="popup-box">
+          <i id="close" class="bx bx-x close"></i>
+          <div class="profile-text">
+            <img src="profile.jpg" alt="Profile Image" />
+            <div class="text">
+              <span class="name">Pranu</span>
+              <span class="profession">Web Developer & Designer</span>
+            </div>
+          </div>
+          <form id="contactForm">
+            <textarea
+              name="message"
+              placeholder="Enter your message"
+            ></textarea>
+            <div id="errorMessage" class="error-message">
+              ⚠️ Message cannot be empty.
+            </div>
+            <div class="button">
+              <button id="close" class="cancel" type="button">Cancel</button>
+              <button class="send" type="submit" id="sendBtn">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

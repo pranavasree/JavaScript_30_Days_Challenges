@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  overflow: hidden;
+  background: linear-gradient(135deg, #8e2de2, #4a00e0);
+}
+section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section .profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+section.show .profile {
+  display: none;
+}
+section .profile .profile-img {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background: #fff;
+  padding: 3px;
+  margin-bottom: 20px;
+}
+.profile .profile-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+.profile .name,
+.profile .profession {
+  font-size: 22px;
+  font-weight: 500;
+  color: #fff;
+}
+.profile .profession {
+  font-weight: 400;
+  margin-top: -6px;
+}
+.profile .button {
+  display: flex;
+  align-items: center;
+  padding: 12px 25px;
+  background: #fff;
+  margin-top: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+.profile .button:hover {
+  background: #e0e0e0;
+}
+.profile .button i {
+  color: #4a00e0;
+  font-size: 22px;
+  margin-right: 5px;
+}
+.profile .button button {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  color: #4a00e0;
+  pointer-events: none;
+}
+
+section .popup-outer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.2);
+  transition: all 0.3s ease-in-out;
+}
+section.show .popup-outer {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}
+section .popup-box {
+  position: relative;
+  padding: 30px;
+  max-width: 420px;
+  width: 100%;
+  background: #fff;
+  border-radius: 12px;
+}
+.popup-box .close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 30px;
+  color: #b4b4b4;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.popup-box .close:hover {
+  color: #333;
+}
+section .popup-box .profile-text {
+  display: flex;
+  align-items: center;
+}
+section .popup-box img {
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.profile-text .text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+.profile-text .text .name {
+  font-size: 20px;
+  font-weight: 400;
+}
+.profile-text .text .profession {
+  font-size: 20px;
+  font-weight: 500;
+}
+section .popup-box textarea {
+  min-height: 200px;
+  width: 100%;
+  margin-top: 20px;
+  outline: none;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 6px;
+  resize: none;
+  font-size: 18px;
+  font-weight: 400;
+  background: #f3f3f3;
+}
+section .popup-box .button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+.popup-box .button button {
+  outline: none;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #8e2de2;
+  margin-left: 12px;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button button.cancel {
+  background: #f082ac;
+}
+.button button.cancel:hover {
+  background: #ec5f95;
+}
+.button button.send:hover {
+  background: #4a00e0;
+}
+
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: #4caf50;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  z-index: 1000;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+.toast.error {
+  background: #f44336;
+}
+.toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* Error message style */
+.error-message {
+  color: #f44336;
+  font-size: 15px;
+  margin-top: 8px;
+  font-weight: 500;
+  display: none;
+}
+
+/* Remove native validation highlight (red outline) in some browsers */
+textarea:invalid {
+  box-shadow: none;
+}
