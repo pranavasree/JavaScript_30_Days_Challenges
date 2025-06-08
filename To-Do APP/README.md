@@ -41,7 +41,7 @@ CDNs are used, so no installation is required.
 
 ## 📸 Preview
 
-<image src="preview.gif" alt="Accordion Preview" width="100%" height="100%">
+<image src="preview.gif" alt="To-Do App Preview" width="100%" height="100%">
 
 ## 📦 Deployment
 
