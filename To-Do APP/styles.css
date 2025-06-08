@@ -1,0 +1,365 @@
+/* General Body Styling */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main Container */
+.todo-container {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 360px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-align: center;
+  animation: fadeIn 0.6s ease;
+}
+
+/* Heading */
+h2 {
+  margin-bottom: 1.2rem;
+  font-size: 1.6rem;
+}
+
+/* Input Section */
+.input-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0 1.5rem;
+}
+
+/* Adjust widths to fit inline */
+#taskInput {
+  flex: 2;
+  min-width: 0;
+  padding: 0.6rem 0.9rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #ffffff;
+  color: #333;
+}
+
+#taskInput::placeholder {
+  color: #aaa;
+}
+
+#dueDate {
+  flex: 1;
+  min-width: 0;
+  padding: 0.6rem 0.9rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #ffffff;
+  color: #333;
+}
+
+#addTask {
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  background-color: #ff4b5c;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#addTask:hover {
+  background-color: #e8434d;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.3);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  padding: 2rem;
+  border-radius: 16px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  animation: fadeIn 0.4s ease;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 10px;
+  margin: 1rem 0;
+  font-size: 1rem;
+  outline: none;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #ff4b5c;
+  color: #fff;
+}
+
+/* Task List */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+/* Task Items */
+li {
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.6rem;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s;
+}
+
+li.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+  animation: popFade 0.4s ease;
+}
+
+li span {
+  flex: 1;
+  text-align: left;
+  word-break: break-word;
+}
+
+li .due-date {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-left: 12px;
+}
+
+li.overdue {
+  border: 2px solid #ff4b5c;
+  box-shadow: 0 0 8px #ff4b5c;
+}
+
+/* Task Actions */
+li .actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+li button {
+  border: none;
+  background: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.2s;
+}
+
+li button:hover {
+  transform: scale(1.2);
+}
+
+/* Progress Section */
+.progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.progress-indicator {
+  background: rgba(255, 255, 255, 0.2);
+  flex: 1;
+  height: 6px;
+  margin: 0 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+#progress-bar {
+  height: 100%;
+  background-color: #ff4b5c;
+  width: 0%;
+  transition: width 0.3s;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Task Completion Animation */
+@keyframes popFade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.3);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  padding: 2rem;
+  border-radius: 16px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  animation: fadeIn 0.4s ease;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 10px;
+  margin: 1rem 0;
+  font-size: 1rem;
+  outline: none;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #ff4b5c;
+  color: #fff;
+}
+
+/* Confetti Canvas */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Gentle Alert */
+.gentle-alert {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 75, 92, 0.9);
+  padding: 0.8rem 1.5rem;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: fadeInOut 4s ease forwards;
+}
+
+/* Gentle Alert Animation */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+/* Background Effects */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
+}
