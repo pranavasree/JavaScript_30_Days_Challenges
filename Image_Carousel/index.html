@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Carousel</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <button class="arrow left swiper-button-prev">&#10094;</button>
+
+      <div class="carousel-wrapper swiper">
+        <div class="carousel swiper-wrapper">
+          <!-- Repeat this .card block for each profile -->
+          <div class="card swiper-slide">
+            <img src="images/p1.jpg" alt="Sarah Johnson" />
+            <h3>Sarah Johnson</h3>
+            <p>Graphic Designer</p>
+            <button>Message</button>
+          </div>
+          <div class="card swiper-slide">
+            <img src="images/p2.jpg" alt="Michael Brown" />
+            <h3>Michael Brown</h3>
+            <p>Project Manager</p>
+            <button>Message</button>
+          </div>
+          <div class="card swiper-slide">
+            <img src="images/p3.jpg" alt="Emily Davis" />
+            <h3>Emily Davis</h3>
+            <p>Marketing Specialist</p>
+            <button>Message</button>
+          </div>
+          <div class="card swiper-slide">
+            <img src="images/p4.jpg" alt="Daniel Lee" />
+            <h3>Daniel Lee</h3>
+            <p>UX Designer</p>
+            <button>Message</button>
+          </div>
+          <div class="card swiper-slide">
+            <img src="images/p5.jpg" alt="Olivia Clark" />
+            <h3>Olivia Clark</h3>
+            <p>Content Strategist</p>
+            <button>Message</button>
+          </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <button class="arrow right swiper-button-next">&#10095;</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
