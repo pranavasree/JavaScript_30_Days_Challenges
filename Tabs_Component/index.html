@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glassmorphic Tabs UI</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- ✅ Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="tabs-container">
+      <div class="tabs">
+        <button class="tab active" data-tab="html">
+          <i class="fas fa-code"></i> HTML
+        </button>
+        <button class="tab" data-tab="css">
+          <i class="fab fa-css3-alt"></i> CSS
+        </button>
+        <button class="tab" data-tab="js">
+          <i class="fab fa-js-square"></i> JavaScript
+        </button>
+        <button class="tab" data-tab="react">
+          <i class="fab fa-react"></i> React
+        </button>
+        <button class="tab" data-tab="node">
+          <i class="fab fa-node-js"></i> Node
+        </button>
+        <div class="tab-indicator"></div>
+      </div>
+      <div class="content-area">
+        <div class="tab-content active" id="html">
+          <h2>HTML</h2>
+          <p>
+            HTML (HyperText Markup Language) is the backbone of all web pages.
+            It defines the structure of web content.
+          </p>
+        </div>
+        <div class="tab-content" id="css">
+          <h2>CSS</h2>
+          <p>
+            CSS (Cascading Style Sheets) is used to style and layout web pages.
+            It makes websites look beautiful and responsive.
+          </p>
+        </div>
+        <div class="tab-content" id="js">
+          <h2>JavaScript</h2>
+          <p>
+            JavaScript enables dynamic interactivity on websites. It allows
+            content updates, animations, and much more.
+          </p>
+        </div>
+        <div class="tab-content" id="react">
+          <h2>React</h2>
+          <p>
+            React is a front-end library developed by Facebook for building
+            reusable UI components with state management.
+          </p>
+        </div>
+        <div class="tab-content" id="node">
+          <h2>Node</h2>
+          <p>
+            Node.js allows developers to write server-side scripts in
+            JavaScript, enabling full-stack JS development.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

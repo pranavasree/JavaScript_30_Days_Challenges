@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #091921, #1f2f46);
+  overflow-x: hidden;
+  padding: 20px;
+}
+
+.tabs-container {
+  width: 100%;
+  max-width: 850px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 45px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  color: #ddd;
+  font-size: 16px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.tab i {
+  transition: transform 0.3s;
+}
+
+.tab.active i,
+.tab.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(90deg, #00ffe7, #00d9ff, #00ffe7);
+  animation: shimmer 1.5s infinite linear;
+  font-weight: bold;
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tab:hover {
+  color: white;
+}
+
+/* Ripple effect */
+.tab::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s, opacity 0.4s;
+}
+
+.tab:active::after {
+  transform: scale(4);
+  opacity: 1;
+  transition: 0s;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+/* Shimmer gradient animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.content-area {
+  color: #fff;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-content h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.tab-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .tab {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+  .tab-content h2 {
+    font-size: 20px;
+  }
+
+  .tab-content p {
+    font-size: 14px;
+  }
+
+  .tabs-container {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tab {
+    font-size: 13px;
+    padding: 10px 12px;
+    gap: 5px;
+  }
+
+  .tab-content h2 {
+    font-size: 18px;
+  }
+
+  .tab-content p {
+    font-size: 13px;
+  }
+
+  .tabs {
+    gap: 6px;
+  }
+
+  .tabs-container {
+    padding: 15px;
+  }
+}
