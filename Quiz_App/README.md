@@ -1,4 +1,4 @@
-# Quiz App – Estate Pulse
+# Quiz App
 
 A responsive, customizable quiz application built using **HTML**, **CSS**, and **Vanilla JavaScript**. This app allows users to select a quiz category, choose the number of questions, and get real-time feedback on their answers.
 
