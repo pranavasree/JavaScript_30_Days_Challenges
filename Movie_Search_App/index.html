@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FilmFinder | Discover Movies</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <div class="logo"><i class="fas fa-film"></i> FilmFinder</div>
+        <nav>
+          <ul>
+            <li><a href="#home" class="active" data-section="home">Home</a></li>
+            <li><a href="#popular" data-section="popular">Popular</a></li>
+            <li>
+              <a href="#categories" data-section="categories">Categories</a>
+            </li>
+            <li><a href="#about" data-section="about">About</a></li>
+          </ul>
+        </nav>
+        <div class="dark-mode-toggle">
+          <i class="fas fa-moon"></i>
+          <label class="toggle-switch">
+            <input type="checkbox" id="dark-mode-toggle" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Discover Your Perfect Movie</h1>
+        <p>Search for exact matches across thousands of films worldwide</p>
+        <div class="search-container">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Enter exact movie title..."
+          />
+          <button id="search-button"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Home section (default view with search and filters) -->
+      <section id="home-section" class="content-section active">
+        <div class="filters">
+          <div class="filter-group">
+            <label for="year-filter">Year:</label>
+            <select id="year-filter">
+              <option value="">All Years</option>
+              <option value="2023">2023</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+              <option value="2020">2020</option>
+              <option value="2010s">2010s</option>
+              <option value="2000s">2000s</option>
+              <option value="1990s">1990s</option>
+              <option value="classic">Classic</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="language-filter">Language:</label>
+            <select id="language-filter">
+              <option value="">All Languages</option>
+              <option value="en">English</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+              <option value="de">German</option>
+              <option value="ja">Japanese</option>
+              <option value="ko">Korean</option>
+              <option value="hi">Hindi</option>
+              <option value="zh">Chinese</option>
+            </select>
+          </div>
+          <button id="filter-button">Apply Filters</button>
+        </div>
+
+        <div id="results-container"></div>
+
+        <div class="pagination">
+          <button id="prev-page" disabled>
+            <i class="fas fa-chevron-left"></i> Previous
+          </button>
+          <span id="page-info">Page 1</span>
+          <button id="next-page" disabled>
+            Next <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- Popular section -->
+      <section id="popular-section" class="content-section">
+        <h2 class="section-title">Popular Movies</h2>
+        <div class="category-tabs">
+          <button class="category-tab active" data-category="popular">
+            Popular Now
+          </button>
+          <button class="category-tab" data-category="top_rated">
+            Top Rated
+          </button>
+          <button class="category-tab" data-category="upcoming">
+            Upcoming
+          </button>
+        </div>
+        <div id="popular-container" class="results-grid"></div>
+        <div class="pagination">
+          <button id="popular-prev-page" disabled>
+            <i class="fas fa-chevron-left"></i> Previous
+          </button>
+          <span id="popular-page-info">Page 1</span>
+          <button id="popular-next-page" disabled>
+            Next <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- Categories section -->
+      <section id="categories-section" class="content-section">
+        <h2 class="section-title">Movie Categories</h2>
+        <div class="genres-grid">
+          <div class="genre-card" data-genre-id="28">
+            <i class="fas fa-fire"></i>
+            <h3>Action</h3>
+          </div>
+          <div class="genre-card" data-genre-id="35">
+            <i class="fas fa-laugh"></i>
+            <h3>Comedy</h3>
+          </div>
+          <div class="genre-card" data-genre-id="18">
+            <i class="fas fa-theater-masks"></i>
+            <h3>Drama</h3>
+          </div>
+          <div class="genre-card" data-genre-id="27">
+            <i class="fas fa-ghost"></i>
+            <h3>Horror</h3>
+          </div>
+          <div class="genre-card" data-genre-id="10749">
+            <i class="fas fa-heart"></i>
+            <h3>Romance</h3>
+          </div>
+          <div class="genre-card" data-genre-id="878">
+            <i class="fas fa-rocket"></i>
+            <h3>Sci-Fi</h3>
+          </div>
+          <div class="genre-card" data-genre-id="53">
+            <i class="fas fa-mask"></i>
+            <h3>Thriller</h3>
+          </div>
+          <div class="genre-card" data-genre-id="16">
+            <i class="fas fa-child"></i>
+            <h3>Animation</h3>
+          </div>
+        </div>
+        <div id="genre-results" class="results-grid"></div>
+        <div class="pagination genre-pagination" style="display: none">
+          <button id="genre-prev-page" disabled>
+            <i class="fas fa-chevron-left"></i> Previous
+          </button>
+          <span id="genre-page-info">Page 1</span>
+          <button id="genre-next-page" disabled>
+            Next <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- About section -->
+      <section id="about-section" class="content-section">
+        <h2 class="section-title">About FilmFinder</h2>
+        <div class="about-content">
+          <div class="about-image">
+            <img
+              src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Cinema"
+            />
+          </div>
+          <div class="about-text">
+            <h3>Your Ultimate Movie Discovery Platform</h3>
+            <p>
+              FilmFinder is a web application designed to help movie enthusiasts
+              discover films from around the world. Our platform provides a
+              seamless experience for searching, filtering, and exploring movies
+              across different languages, genres, and time periods.
+            </p>
+
+            <h3>Features</h3>
+            <ul>
+              <li>
+                <i class="fas fa-search"></i>
+                <strong>Powerful Search:</strong> Find movies by title with
+                real-time results
+              </li>
+              <li>
+                <i class="fas fa-filter"></i>
+                <strong>Advanced Filtering:</strong> Filter by year, language,
+                and more
+              </li>
+              <li>
+                <i class="fas fa-film"></i>
+                <strong>Detailed Information:</strong> Get comprehensive details
+                about each movie
+              </li>
+              <li>
+                <i class="fas fa-globe"></i>
+                <strong>International Coverage:</strong> Discover movies from
+                around the world
+              </li>
+              <li>
+                <i class="fas fa-list"></i>
+                <strong>Genre Exploration:</strong> Browse movies by your
+                favorite genres
+              </li>
+            </ul>
+
+            <h3>Powered by TMDb</h3>
+            <p>
+              FilmFinder uses the TMDb API to provide up-to-date information
+              about movies. This project is created for educational purposes and
+              is not affiliated with TMDb.
+            </p>
+
+            <div class="tmdb-attribution">
+              <img
+                src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+                alt="TMDb Logo"
+              />
+              <p>
+                This product uses the TMDb API but is not endorsed or certified
+                by TMDb.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
