@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Kanban Board</h1>
+      <div class="board">
+        <!-- LIST 1 -->
+        <div class="list" id="list1" data-status="todo">
+          <h2>📝 To Do</h2>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-todo"></div>
+          </div>
+          <div class="card-container" id="cards-list1"></div>
+          <button class="add-btn" onclick="addCard('list1')">+ Add Card</button>
+        </div>
+
+        <!-- LIST 2 -->
+        <div class="list" id="list2" data-status="progress">
+          <h2>🔧 In Progress</h2>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-progress"></div>
+          </div>
+          <div class="card-container" id="cards-list2"></div>
+          <button class="add-btn" onclick="addCard('list2')">+ Add Card</button>
+        </div>
+
+        <!-- LIST 3 -->
+        <div class="list" id="list3" data-status="done">
+          <h2>✅ Done</h2>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-done"></div>
+          </div>
+          <div class="card-container" id="cards-list3"></div>
+          <button class="add-btn" onclick="addCard('list3')">+ Add Card</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
