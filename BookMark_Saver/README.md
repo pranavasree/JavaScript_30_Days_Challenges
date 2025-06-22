@@ -77,15 +77,6 @@ The app is optimized for cross-device compatibility:
 - **Desktop (>768px)**: Fixed max-width layout with scalable fonts and a polished dark theme.
 - **Accessibility**: Uses `clamp()` for dynamic font sizing and ellipsis for long bookmark names to prevent text overflow.
 
-## Future Enhancements
-
-- **Edit Bookmarks**: Add functionality to edit existing bookmark names and URLs.
-- **Bookmark Categories**: Enable assigning categories (e.g., Work, Personal, Study) and filtering by category.
-- **Search Bookmarks**: Implement a search input to filter bookmarks by name or URL.
-- **Favicon Display**: Display website favicons next to each bookmark for visual recognition.
-- **Export/Import Bookmarks**: Allow users to export bookmarks as a JSON file and import them.
-- **React Conversion**: Rewrite the app in React to practice components, state management, and hooks.
-
 ## Contributing
 
 Contributions are welcome! Feel free to fork this repository, add features, or improve the design. Submit pull requests or open issues for suggestions or bug reports.
