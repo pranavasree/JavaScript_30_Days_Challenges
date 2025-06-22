@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #263238; /* Dark gray background */
+  color: #eceff1; /* Light text for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.app-container {
+  background-color: #37474f; /* Slightly lighter gray for container */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Darker shadow */
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+h1 {
+  color: #26a69a; /* Teal accent for heading */
+  margin-bottom: 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #546e7a; /* Grayish border */
+}
+
+button {
+  padding: 10px;
+  background-color: #26a69a; /* Teal for buttons */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #00897b; /* Darker teal on hover */
+}
+
+#bookmark-list {
+  list-style: none;
+  padding: 0;
+}
+
+#bookmark-list li {
+  background-color: #455a64; /* Darker gray for list items */
+  padding: 10px;
+  border: 1px solid #546e7a; /* Matching border */
+  border-radius: 4px;
+  margin-bottom: 7px;
+  margin-top: 3px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#bookmark-list a {
+  color: #26a69a; /* Teal for links */
+  text-decoration: none;
+}
+
+#bookmark-list button {
+  background-color: #ef5350; /* Red-orange for remove buttons */
+  padding: 5px 10px;
+}
+
+#bookmark-list button:hover {
+  background-color: #e53935; /* Darker red-orange on hover */
+}
+
+/* New: Style for edit button */
+#bookmark-list button.edit {
+  background-color: #0288d1; /* Blue for edit buttons */
+  margin-right: 5px;
+}
+
+#bookmark-list button.edit:hover {
+  background-color: #0277bd; /* Darker blue on hover */
+}
+
+/* New: Style for select dropdowns */
+select {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #546e7a;
+  background-color: #455a64;
+  color: #eceff1;
+}
+
+/* New: Style for search input */
+#search-bookmarks {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #546e7a;
+  width: 100%;
+  margin-bottom: 10px;
+}
