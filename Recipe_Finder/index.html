@@ -3,62 +3,295 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipe Finder</title>
+    <title>Recipe Finder App</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
   </head>
   <body>
     <div class="container">
+      <!-- Header with Dark Mode Toggle -->
       <header>
-        <h1><i class="fas fa-utensils"></i> Recipe Finder</h1>
+        <div class="header-top">
+          <h1><i class="fas fa-utensils"></i> Recipe Finder</h1>
+          <button
+            id="theme-toggle"
+            class="theme-toggle"
+            title="Toggle Dark Mode"
+          >
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
         <p>Find delicious recipes from around the world</p>
       </header>
-      <div class="search-container">
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Search by meal or ingredient..."
-        />
-        <button id="search-btn">Search</button>
-        <select id="category-filter">
-          <option value="">All Categories</option>
-        </select>
+
+      <p class="api-link">
+        Data from <a href="https://www.themealdb.com/api.php">TheMealDB 🧑‍🍳</a>
+      </p>
+
+      <!-- Navigation Tabs -->
+      <nav class="nav-tabs">
+        <button class="nav-tab active" data-tab="search">
+          <i class="fas fa-search"></i> Search
+        </button>
+        <button class="nav-tab" data-tab="favorites">
+          <i class="fas fa-heart"></i> Favorites
+        </button>
+        <button class="nav-tab" data-tab="collections">
+          <i class="fas fa-folder"></i> Collections
+        </button>
+        <button class="nav-tab" data-tab="shopping-list">
+          <i class="fas fa-shopping-cart"></i> Shopping List
+        </button>
+      </nav>
+
+      <!-- Search Tab Content -->
+      <div id="search-tab" class="tab-content active">
+        <!-- Search Options -->
+        <div class="search-options">
+          <div class="search-container">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search for meals or keywords"
+            />
+            <button id="search-btn">Search</button>
+          </div>
+
+          <div class="search-type-toggle">
+            <button id="name-search-btn" class="search-type-btn active">
+              By Name
+            </button>
+            <button id="ingredient-search-btn" class="search-type-btn">
+              By Ingredients
+            </button>
+          </div>
+
+          <div id="ingredient-search-container" class="hidden">
+            <input
+              type="text"
+              id="ingredient-input"
+              placeholder="Enter ingredients separated by commas (e.g., chicken, rice, tomato)"
+            />
+            <button id="ingredient-search-submit">Find Recipes</button>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+          <button id="random-recipe-btn" class="action-btn">
+            <i class="fas fa-dice"></i> Surprise Me!
+          </button>
+          <button id="clear-history-btn" class="action-btn">
+            <i class="fas fa-trash"></i> Clear History
+          </button>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-container">
+          <h3>Filters</h3>
+          <div class="filters">
+            <select id="category-filter">
+              <option value="">All Categories</option>
+            </select>
+            <select id="area-filter">
+              <option value="">All Areas</option>
+            </select>
+            <button id="clear-filters-btn">Clear Filters</button>
+          </div>
+        </div>
+
+        <!-- Search History -->
+        <div id="search-history-container" class="hidden">
+          <h3>Recent Searches</h3>
+          <div id="search-history" class="search-history"></div>
+        </div>
       </div>
-      <div id="favorites-section" class="hidden">
-        <h2>Favorite Recipes</h2>
+
+      <!-- Favorites Tab Content -->
+      <div id="favorites-tab" class="tab-content hidden">
+        <div class="favorites-header">
+          <h2><i class="fas fa-heart"></i> Your Favorite Recipes</h2>
+          <button id="clear-favorites-btn" class="action-btn">
+            <i class="fas fa-trash"></i> Clear All
+          </button>
+        </div>
         <div id="favorites-container" class="meals-container"></div>
+        <div id="no-favorites" class="empty-state hidden">
+          <i class="fas fa-heart-broken"></i>
+          <p>
+            No favorite recipes yet. Start exploring and save your favorites!
+          </p>
+        </div>
       </div>
-      <div id="cart-section" class="hidden">
-        <h2>Cart</h2>
-        <div id="cart-container" class="meals-container"></div>
-        <button id="clear-cart">Clear Cart</button>
+
+      <!-- Collections Tab Content -->
+      <div id="collections-tab" class="tab-content hidden">
+        <div class="collections-header">
+          <h2><i class="fas fa-folder"></i> Recipe Collections</h2>
+          <button id="create-collection-btn" class="action-btn">
+            <i class="fas fa-plus"></i> New Collection
+          </button>
+        </div>
+        <div id="collections-container"></div>
+        <div id="no-collections" class="empty-state hidden">
+          <i class="fas fa-folder-open"></i>
+          <p>
+            No collections yet. Create your first collection to organize your
+            recipes!
+          </p>
+        </div>
       </div>
-      <div id="shopping-list-section" class="hidden">
-        <h2>Shopping List</h2>
-        <ul id="shopping-list"></ul>
-        <button id="clear-shopping-list">Clear List</button>
+
+      <!-- Shopping List Tab Content -->
+      <div id="shopping-list-tab" class="tab-content hidden">
+        <div class="shopping-list-header">
+          <h2><i class="fas fa-shopping-cart"></i> Shopping List</h2>
+          <div class="shopping-list-actions">
+            <button id="clear-shopping-list-btn" class="action-btn">
+              <i class="fas fa-trash"></i> Clear All
+            </button>
+            <button id="print-shopping-list-btn" class="action-btn">
+              <i class="fas fa-print"></i> Print
+            </button>
+          </div>
+        </div>
+        <div id="shopping-list-container"></div>
+        <div id="no-shopping-items" class="empty-state hidden">
+          <i class="fas fa-shopping-basket"></i>
+          <p>
+            Your shopping list is empty. Add ingredients from recipes to get
+            started!
+          </p>
+        </div>
       </div>
-      <div id="result-heading"></div>
+
+      <!-- Error Container -->
       <div id="error-container" class="hidden">
-        No meals found. Try another search term!
+        <p>No meals found. Try another search term!</p>
       </div>
+
+      <!-- Result Heading -->
+      <div id="result-heading"></div>
+
+      <!-- Meals Container -->
       <div id="meals" class="meals-container"></div>
+
+      <!-- Meal Details -->
       <div id="meal-details" class="hidden">
-        <button id="back-btn">Back to recipes</button>
+        <div class="meal-details-header">
+          <button id="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to recipes
+          </button>
+          <div class="meal-details-actions">
+            <button id="favorite-btn" class="action-btn">
+              <i class="far fa-heart"></i> Add to Favorites
+            </button>
+            <button id="add-to-collection-btn" class="action-btn">
+              <i class="fas fa-folder-plus"></i> Add to Collection
+            </button>
+            <button id="share-recipe-btn" class="action-btn">
+              <i class="fas fa-share"></i> Share
+            </button>
+            <button id="print-recipe-btn" class="action-btn">
+              <i class="fas fa-print"></i> Print
+            </button>
+          </div>
+        </div>
+
         <div class="meal-details-content"></div>
       </div>
-      <div class="api-link">
-        Data from
-        <a href="https://www.themealdb.com" target="_blank">TheMealDB 🧑‍🍳</a>
+
+      <!-- Cooking Timer -->
+      <div id="cooking-timer" class="cooking-timer hidden">
+        <div class="timer-header">
+          <h3><i class="fas fa-clock"></i> Cooking Timer</h3>
+          <button id="close-timer-btn" class="close-btn">&times;</button>
+        </div>
+        <div class="timer-content">
+          <div class="timer-display">
+            <span id="timer-minutes">00</span>:<span id="timer-seconds"
+              >00</span
+            >
+          </div>
+          <div class="timer-controls">
+            <input
+              type="number"
+              id="timer-input"
+              placeholder="Minutes"
+              min="1"
+              max="999"
+            />
+            <button id="start-timer-btn">Start</button>
+            <button id="pause-timer-btn" class="hidden">Pause</button>
+            <button id="reset-timer-btn">Reset</button>
+          </div>
+        </div>
       </div>
     </div>
+
+    <!-- Modals -->
+    <!-- Collection Modal -->
+    <div id="collection-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="collection-modal-title">Create New Collection</h3>
+          <button class="close-btn" id="close-collection-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <input
+            type="text"
+            id="collection-name-input"
+            placeholder="Collection name"
+          />
+          <textarea
+            id="collection-description-input"
+            placeholder="Description (optional)"
+          ></textarea>
+        </div>
+        <div class="modal-footer">
+          <button id="save-collection-btn" class="action-btn">Save</button>
+          <button id="cancel-collection-btn" class="action-btn secondary">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="share-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Share Recipe</h3>
+          <button class="close-btn" id="close-share-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="share-options">
+            <button class="share-btn" data-platform="facebook">
+              <i class="fab fa-facebook"></i> Facebook
+            </button>
+            <button class="share-btn" data-platform="twitter">
+              <i class="fab fa-twitter"></i> Twitter
+            </button>
+            <button class="share-btn" data-platform="whatsapp">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </button>
+            <button class="share-btn" id="copy-link-btn">
+              <i class="fas fa-link"></i> Copy Link
+            </button>
+          </div>
+          <div class="share-url-container">
+            <input type="text" id="share-url" readonly />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
