@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Google Clone - A clean and responsive replica of Google's homepage"
+    />
+    <title>Google</title>
+    <link rel="icon" href="./images/favicon.jpg" />
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://kit.fontawesome.com/b0f29e9bfe.js"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li>
+            <a class="link" href="https://mail.google.com" aria-label="Gmail"
+              >Gmail</a
+            >
+          </li>
+          <li>
+            <a
+              class="link"
+              href="https://images.google.com"
+              aria-label="Google Images"
+              >Images</a
+            >
+          </li>
+          <li>
+            <div class="circle-shadow">
+              <button
+                class="menu-icon"
+                aria-label="Google apps menu"
+                type="button"
+              >
+                <i class="fas fa-bars" aria-hidden="true"></i>
+              </button>
+            </div>
+          </li>
+          <li>
+            <div class="circle-shadow">
+              <button class="user-icon" aria-label="User account" type="button">
+                <span aria-hidden="true">J</span>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Content -->
+    <main class="content-section" role="main">
+      <div class="content-wrapper">
+        <img class="logo-img" src="./images/logo.jpg" alt="Google" />
+        <form class="search-form" role="search" aria-label="Search the web">
+          <div class="search-bar">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input
+              id="search-input"
+              class="search-input"
+              type="text"
+              autocomplete="off"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+              aria-label="Search"
+              title="Search"
+            />
+            <button
+              type="button"
+              class="search-icon-btn"
+              aria-label="Search by voice"
+            >
+              <i class="fas fa-microphone" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              class="search-icon-btn"
+              aria-label="Search by image"
+            >
+              <i class="fas fa-camera" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="search-btns">
+            <button type="submit" class="google-search-btn">
+              Google Search
+            </button>
+            <button type="button" class="lucky-search-btn">
+              I'm Feeling Lucky
+            </button>
+          </div>
+        </form>
+        <div class="language">
+          <p>Google offered in: <a href="#" lang="mi">Māori</a></p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content upper-footer">
+        <p>New Zealand</p>
+      </div>
+      <div class="footer-content lower-footer">
+        <ul class="lower-left-footer">
+          <li>
+            <a href="">About</a>
+          </li>
+          <li>
+            <a href="">Advertising</a>
+          </li>
+          <li>
+            <a href="">Business</a>
+          </li>
+          <li>
+            <a href="">How Search Works</a>
+          </li>
+        </ul>
+        <ul class="lower-right-footer">
+          <li>
+            <a href="">Privacy</a>
+          </li>
+          <li>
+            <a href="">Terms</a>
+          </li>
+          <li>
+            <a href="">Settings</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
