@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Modern Tic Tac Toe game with multiple modes and AI opponent"
+    />
+    <title>Tic Tac Toe - Ultimate Game Experience</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Game Container -->
+    <div class="game-container">
+      <!-- Header -->
+      <header class="game-header">
+        <div class="logo">
+          <i class="fas fa-gamepad"></i>
+          <h1>Tic Tac Toe</h1>
+        </div>
+        <div class="theme-toggle">
+          <button id="themeToggle" class="theme-btn" title="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- Game Mode Selection -->
+      <div class="game-mode-selection" id="gameModeSelection">
+        <h2>Choose Game Mode</h2>
+        <div class="mode-buttons">
+          <button class="mode-btn" data-mode="pvp">
+            <i class="fas fa-users"></i>
+            <span>Player vs Player</span>
+            <small>Play with a friend</small>
+          </button>
+          <button class="mode-btn" data-mode="ai-easy">
+            <i class="fas fa-robot"></i>
+            <span>vs AI (Easy)</span>
+            <small>Beginner level</small>
+          </button>
+          <button class="mode-btn" data-mode="ai-hard">
+            <i class="fas fa-brain"></i>
+            <span>vs AI (Hard)</span>
+            <small>Unbeatable AI</small>
+          </button>
+        </div>
+      </div>
+
+      <!-- Game Board Section -->
+      <div class="game-section" id="gameSection" style="display: none">
+        <!-- Game Info -->
+        <div class="game-info">
+          <div class="player-info">
+            <div class="player player-x active" id="playerX">
+              <div class="player-icon">
+                <i class="fas fa-times"></i>
+              </div>
+              <div class="player-details">
+                <span class="player-name">Player X</span>
+                <span class="player-score" id="scoreX">0</span>
+              </div>
+            </div>
+
+            <div class="game-status">
+              <div class="current-turn" id="currentTurn">
+                <span>Player X's Turn</span>
+              </div>
+              <div class="game-mode-display" id="gameModeDisplay">
+                Player vs Player
+              </div>
+            </div>
+
+            <div class="player player-o" id="playerO">
+              <div class="player-icon">
+                <i class="fas fa-circle"></i>
+              </div>
+              <div class="player-details">
+                <span class="player-name">Player O</span>
+                <span class="player-score" id="scoreO">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game Board -->
+        <div class="game-board-container">
+          <div class="game-board" id="gameBoard">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+          </div>
+          <div class="winning-line" id="winningLine"></div>
+        </div>
+
+        <!-- Game Controls -->
+        <div class="game-controls">
+          <button class="control-btn restart-btn" id="restartBtn">
+            <i class="fas fa-redo"></i>
+            <span>Restart Game</span>
+          </button>
+          <button class="control-btn new-game-btn" id="newGameBtn">
+            <i class="fas fa-plus"></i>
+            <span>New Game</span>
+          </button>
+          <button class="control-btn stats-btn" id="statsBtn">
+            <i class="fas fa-chart-bar"></i>
+            <span>Statistics</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Statistics Modal -->
+      <div class="modal" id="statsModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>Game Statistics</h3>
+            <button class="close-btn" id="closeStatsModal">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-value" id="totalGames">0</div>
+                <div class="stat-label">Total Games</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="playerXWins">0</div>
+                <div class="stat-label">Player X Wins</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="playerOWins">0</div>
+                <div class="stat-label">Player O Wins</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="draws">0</div>
+                <div class="stat-label">Draws</div>
+              </div>
+            </div>
+            <button class="reset-stats-btn" id="resetStatsBtn">
+              <i class="fas fa-trash"></i>
+              Reset Statistics
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game Result Modal -->
+      <div class="modal" id="resultModal">
+        <div class="modal-content result-modal">
+          <div class="result-content">
+            <div class="result-icon" id="resultIcon">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <div class="result-text" id="resultText">Player X Wins!</div>
+            <div class="result-actions">
+              <button class="result-btn play-again-btn" id="playAgainBtn">
+                <i class="fas fa-play"></i>
+                Play Again
+              </button>
+              <button class="result-btn change-mode-btn" id="changeModeBtn">
+                <i class="fas fa-exchange-alt"></i>
+                Change Mode
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
