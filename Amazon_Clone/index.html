@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Amazon Clone - Your one-stop shop for everything online"
+    />
+    <title>
+      Amazon Clone - Online Shopping for Electronics, Apparel, Computers, Books
+      & more
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <!-- Top Navigation -->
+      <div class="header-top">
+        <div class="container">
+          <div class="header-left">
+            <div class="logo">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/320px-Amazon_logo.svg.png"
+                alt="Amazon Logo"
+                id="logo"
+              />
+            </div>
+
+            <div class="delivery-location">
+              <i class="fas fa-map-marker-alt"></i>
+              <div class="location-text">
+                <span class="deliver-to">Deliver to</span>
+                <span class="location">New York 10001</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="search-section">
+            <div class="search-bar">
+              <select class="search-category">
+                <option value="all">All</option>
+                <option value="electronics">Electronics</option>
+                <option value="books">Books</option>
+                <option value="clothing">Clothing</option>
+                <option value="home">Home & Garden</option>
+                <option value="sports">Sports</option>
+              </select>
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Search Amazon Clone"
+                id="searchInput"
+              />
+              <button class="search-btn" id="searchBtn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="header-right">
+            <div class="language-selector">
+              <img
+                src="https://flagcdn.com/24x18/us.png"
+                alt="US Flag"
+                class="flag"
+              />
+              <span>EN</span>
+              <i class="fas fa-caret-down"></i>
+            </div>
+
+            <div class="account-section">
+              <span class="greeting">Hello, Sign in</span>
+              <span class="account-text">Account & Lists</span>
+              <i class="fas fa-caret-down"></i>
+            </div>
+
+            <div class="returns-orders">
+              <span class="returns-text">Returns</span>
+              <span class="orders-text">& Orders</span>
+            </div>
+
+            <div class="cart-section" id="cartSection">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count" id="cartCount">0</span>
+              <span class="cart-text">Cart</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Navigation -->
+      <div class="header-bottom">
+        <div class="container">
+          <div class="nav-left">
+            <div class="hamburger-menu" id="hamburgerMenu">
+              <i class="fas fa-bars"></i>
+              <span>All</span>
+            </div>
+
+            <nav class="main-nav">
+              <a href="#" class="nav-link">Today's Deals</a>
+              <a href="#" class="nav-link">Customer Service</a>
+              <a href="#" class="nav-link">Registry</a>
+              <a href="#" class="nav-link">Gift Cards</a>
+              <a href="#" class="nav-link">Sell</a>
+            </nav>
+          </div>
+
+          <div class="nav-right">
+            <a href="#" class="nav-link special">Shop deals in Electronics</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-slider" id="heroSlider">
+          <div class="hero-slide active">
+            <img
+              src="https://picsum.photos/1200/400?random=1"
+              alt="Holiday Deals"
+            />
+            <div class="hero-content">
+              <h2>Holiday Deals</h2>
+              <p>Save up to 50% on electronics, home goods, and more</p>
+              <button class="hero-btn">Shop Now</button>
+            </div>
+          </div>
+          <div class="hero-slide">
+            <img
+              src="https://picsum.photos/1200/400?random=2"
+              alt="Electronics Sale"
+            />
+            <div class="hero-content">
+              <h2>Electronics Sale</h2>
+              <p>Latest gadgets at unbeatable prices</p>
+              <button class="hero-btn">Explore</button>
+            </div>
+          </div>
+          <div class="hero-slide">
+            <img
+              src="https://picsum.photos/1200/400?random=3"
+              alt="Fashion Week"
+            />
+            <div class="hero-content">
+              <h2>Fashion Week</h2>
+              <p>Trending styles for every season</p>
+              <button class="hero-btn">Shop Fashion</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-controls">
+          <button class="hero-prev" id="heroPrev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="hero-next" id="heroNext">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="hero-indicators">
+          <span class="indicator active" data-slide="0"></span>
+          <span class="indicator" data-slide="1"></span>
+          <span class="indicator" data-slide="2"></span>
+        </div>
+      </section>
+
+      <!-- Product Categories -->
+      <section class="categories-section">
+        <div class="container">
+          <h2 class="section-title">Shop by Category</h2>
+          <div class="categories-grid">
+            <div class="category-card" data-category="electronics">
+              <img
+                src="https://picsum.photos/300/200?random=10"
+                alt="Electronics"
+              />
+              <h3>Electronics</h3>
+              <p>Latest gadgets and tech</p>
+              <button class="category-btn">Shop Now</button>
+            </div>
+
+            <div class="category-card" data-category="books">
+              <img src="https://picsum.photos/300/200?random=11" alt="Books" />
+              <h3>Books</h3>
+              <p>Bestsellers and new releases</p>
+              <button class="category-btn">Shop Now</button>
+            </div>
+
+            <div class="category-card" data-category="clothing">
+              <img
+                src="https://picsum.photos/300/200?random=12"
+                alt="Fashion"
+              />
+              <h3>Fashion</h3>
+              <p>Trending styles for everyone</p>
+              <button class="category-btn">Shop Now</button>
+            </div>
+
+            <div class="category-card" data-category="home">
+              <img
+                src="https://picsum.photos/300/200?random=13"
+                alt="Home & Garden"
+              />
+              <h3>Home & Garden</h3>
+              <p>Everything for your home</p>
+              <button class="category-btn">Shop Now</button>
+            </div>
+
+            <div class="category-card" data-category="sports">
+              <img src="https://picsum.photos/300/200?random=14" alt="Sports" />
+              <h3>Sports & Outdoors</h3>
+              <p>Gear for active lifestyle</p>
+              <button class="category-btn">Shop Now</button>
+            </div>
+
+            <div class="category-card" data-category="beauty">
+              <img src="https://picsum.photos/300/200?random=15" alt="Beauty" />
+              <h3>Beauty & Personal Care</h3>
+              <p>Look and feel your best</p>
+              <button class="category-btn">Shop Now</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Products -->
+      <section class="products-section">
+        <div class="container">
+          <h2 class="section-title">Featured Products</h2>
+          <div class="products-filter">
+            <button class="filter-btn active" data-filter="all">
+              All Products
+            </button>
+            <button class="filter-btn" data-filter="electronics">
+              Electronics
+            </button>
+            <button class="filter-btn" data-filter="books">Books</button>
+            <button class="filter-btn" data-filter="clothing">Clothing</button>
+            <button class="filter-btn" data-filter="home">Home</button>
+          </div>
+
+          <div class="products-grid" id="productsGrid">
+            <!-- Products will be dynamically loaded here -->
+          </div>
+
+          <div class="load-more-section">
+            <button class="load-more-btn" id="loadMoreBtn">
+              Load More Products
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Deals Section -->
+      <section class="deals-section">
+        <div class="container">
+          <h2 class="section-title">Today's Deals</h2>
+          <div class="deals-grid">
+            <div class="deal-card featured-deal">
+              <div class="deal-badge">Deal of the Day</div>
+              <img
+                src="https://picsum.photos/400/300?random=20"
+                alt="Featured Deal"
+              />
+              <div class="deal-content">
+                <h3>Premium Wireless Headphones</h3>
+                <div class="deal-price">
+                  <span class="current-price">$79.99</span>
+                  <span class="original-price">$149.99</span>
+                  <span class="discount">47% off</span>
+                </div>
+                <div class="deal-timer" id="dealTimer">
+                  <span class="timer-label">Ends in:</span>
+                  <span class="timer-time">12:34:56</span>
+                </div>
+                <button class="deal-btn">Shop Deal</button>
+              </div>
+            </div>
+
+            <div class="deals-list">
+              <div class="deal-item">
+                <img src="https://picsum.photos/100/100?random=21" alt="Deal" />
+                <div class="deal-info">
+                  <h4>Smart Watch</h4>
+                  <div class="deal-price">
+                    <span class="current-price">$199</span>
+                    <span class="discount">25% off</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="deal-item">
+                <img src="https://picsum.photos/100/100?random=22" alt="Deal" />
+                <div class="deal-info">
+                  <h4>Bluetooth Speaker</h4>
+                  <div class="deal-price">
+                    <span class="current-price">$49</span>
+                    <span class="discount">30% off</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="deal-item">
+                <img src="https://picsum.photos/100/100?random=23" alt="Deal" />
+                <div class="deal-info">
+                  <h4>Coffee Maker</h4>
+                  <div class="deal-price">
+                    <span class="current-price">$89</span>
+                    <span class="discount">40% off</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="deal-item">
+                <img src="https://picsum.photos/100/100?random=24" alt="Deal" />
+                <div class="deal-info">
+                  <h4>Fitness Tracker</h4>
+                  <div class="deal-price">
+                    <span class="current-price">$129</span>
+                    <span class="discount">35% off</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Shopping Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-content">
+        <div class="cart-header">
+          <h3>Shopping Cart</h3>
+          <button class="close-cart" id="closeCart">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="cart-body" id="cartBody">
+          <div class="empty-cart">
+            <i class="fas fa-shopping-cart"></i>
+            <p>Your cart is empty</p>
+            <button class="continue-shopping" id="continueShopping">
+              Continue Shopping
+            </button>
+          </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display: none">
+          <div class="cart-total">
+            <span class="total-label">Total: </span>
+            <span class="total-amount" id="totalAmount">$0.00</span>
+          </div>
+          <button class="checkout-btn" id="checkoutBtn">
+            Proceed to Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-top">
+        <button class="back-to-top" id="backToTop">Back to top</button>
+      </div>
+
+      <div class="footer-content">
+        <div class="container">
+          <div class="footer-sections">
+            <div class="footer-section">
+              <h4>Get to Know Us</h4>
+              <ul>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">About Amazon</a></li>
+                <li><a href="#">Investor Relations</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-section">
+              <h4>Make Money with Us</h4>
+              <ul>
+                <li><a href="#">Sell products on Amazon</a></li>
+                <li><a href="#">Sell on Amazon Business</a></li>
+                <li><a href="#">Sell apps on Amazon</a></li>
+                <li><a href="#">Become an Affiliate</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-section">
+              <h4>Amazon Payment Products</h4>
+              <ul>
+                <li><a href="#">Amazon Business Card</a></li>
+                <li><a href="#">Shop with Points</a></li>
+                <li><a href="#">Reload Your Balance</a></li>
+                <li><a href="#">Amazon Currency Converter</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-section">
+              <h4>Let Us Help You</h4>
+              <ul>
+                <li><a href="#">Amazon and COVID-19</a></li>
+                <li><a href="#">Your Account</a></li>
+                <li><a href="#">Your Orders</a></li>
+                <li><a href="#">Shipping Rates & Policies</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="footer-logo">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/320px-Amazon_logo.svg.png"
+              alt="Amazon Logo"
+            />
+          </div>
+          <div class="footer-links">
+            <a href="#">Conditions of Use</a>
+            <a href="#">Privacy Notice</a>
+            <a href="#">Interest-Based Ads</a>
+          </div>
+          <div class="footer-copyright">
+            <p>&copy; 2024 Amazon Clone. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
