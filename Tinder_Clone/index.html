@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Tinder Clone - Modern Dating App Experience with Swipe, Match, and Chat Features"
+    />
+    <meta
+      name="keywords"
+      content="dating, app, tinder, swipe, match, chat, social, relationships"
+    />
+    <meta name="author" content="Tinder Clone App" />
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#FD5068" />
+    <meta name="background-color" content="#FD5068" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Tinder" />
+    <meta name="application-name" content="Tinder Clone" />
+    <meta name="msapplication-TileColor" content="#FD5068" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iI0ZENTAzOCIvPgo8c3ZnIHg9IjgiIHk9IjgiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xMiAyMS4zNWwtMS40NS0xLjMyQzUuNCAxNS4zNiAyIDEyLjI4IDIgOC41IDIgNS40MiA0LjQyIDMgNy41IDNjMS43NCAwIDMuNDEuODEgNC41IDIuMDlDMTMuMDkgMy44MSAxNC43NiAzIDE2LjUgM0MxOS41OCAzIDIyIDUuNDIgMjIgOC41YzAgMy43OC0zLjQgNi44Ni04LjU1IDExLjU0TDEyIDIxLjM1eiIvPgo8L3N2Zz4KPC9zdmc+"
+    />
+
+    <!-- Apple Touch Icons -->
+    <link
+      rel="apple-touch-icon"
+      href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiByeD0iNDAiIGZpbGw9IiNGRDUwNjgiLz4KPHN2ZyB4PSI1NCIgeT0iNTQiIHdpZHRoPSI3MiIgaGVpZ2h0PSI3MiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xMiAyMS4zNWwtMS40NS0xLjMyQzUuNCAxNS4zNiAyIDEyLjI4IDIgOC41IDIgNS40MiA0LjQyIDMgNy41IDNjMS43NCAwIDMuNDEuODEgNC41IDIuMDlDMTMuMDkgMy44MSAxNC43NiAzIDE2LjUgM0MxOS41OCAzIDIyIDUuNDIgMjIgOC41YzAgMy43OC0zLjQgNi44Ni04LjU1IDExLjU0TDEyIDIxLjM1eiIvPgo8L3N2Zz4KPC9zdmc+"
+    />
+
+    <title>Tinder Clone - Swipe, Match, Chat</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- App Container -->
+    <div class="app-container">
+      <!-- Header -->
+      <header class="app-header">
+        <div class="header-content">
+          <div class="header-left">
+            <button class="header-btn profile-btn" id="profileBtn">
+              <i class="fas fa-user"></i>
+            </button>
+          </div>
+
+          <div class="header-center">
+            <div class="logo">
+              <i class="fas fa-fire"></i>
+              <span>Tinder</span>
+            </div>
+          </div>
+
+          <div class="header-right">
+            <button class="header-btn chat-btn" id="chatBtn">
+              <i class="fas fa-comment"></i>
+              <span class="notification-badge" id="chatBadge">3</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Card Stack -->
+        <div class="card-stack" id="cardStack">
+          <!-- Cards will be dynamically generated here -->
+        </div>
+
+        <!-- No More Cards Message -->
+        <div class="no-more-cards" id="noMoreCards" style="display: none">
+          <div class="no-cards-content">
+            <i class="fas fa-heart-broken"></i>
+            <h3>No more people nearby</h3>
+            <p>Try expanding your discovery settings to see more people</p>
+            <button class="reload-btn" id="reloadBtn">
+              <i class="fas fa-redo"></i>
+              Reload Cards
+            </button>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button class="action-btn pass-btn" id="passBtn" title="Pass">
+            <i class="fas fa-times"></i>
+          </button>
+
+          <button
+            class="action-btn super-like-btn"
+            id="superLikeBtn"
+            title="Super Like"
+          >
+            <i class="fas fa-star"></i>
+          </button>
+
+          <button class="action-btn like-btn" id="likeBtn" title="Like">
+            <i class="fas fa-heart"></i>
+          </button>
+
+          <button class="action-btn boost-btn" id="boostBtn" title="Boost">
+            <i class="fas fa-bolt"></i>
+          </button>
+
+          <button class="action-btn rewind-btn" id="rewindBtn" title="Rewind">
+            <i class="fas fa-undo"></i>
+          </button>
+        </div>
+      </main>
+
+      <!-- Match Modal -->
+      <div class="match-modal" id="matchModal">
+        <div class="match-content">
+          <div class="match-header">
+            <h2>IT'S A MATCH!</h2>
+            <p>You and <span id="matchName">Sarah</span> liked each other</p>
+          </div>
+
+          <div class="match-photos">
+            <div class="match-photo user-photo">
+              <img
+                src="https://picsum.photos/150/150?random=100"
+                alt="Your Photo"
+                id="userPhoto"
+              />
+            </div>
+            <div class="match-heart">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="match-photo match-photo-img">
+              <img src="" alt="Match Photo" id="matchPhoto" />
+            </div>
+          </div>
+
+          <div class="match-actions">
+            <button class="match-btn keep-swiping" id="keepSwiping">
+              Keep Swiping
+            </button>
+            <button class="match-btn send-message" id="sendMessage">
+              Send Message
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Modal -->
+      <div class="profile-modal" id="profileModal">
+        <div class="profile-content">
+          <div class="profile-header">
+            <h3>Profile Settings</h3>
+            <button class="close-btn" id="closeProfile">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+
+          <div class="profile-body">
+            <div class="profile-photo-section">
+              <div class="profile-photo">
+                <img
+                  src="https://picsum.photos/150/150?random=100"
+                  alt="Profile Photo"
+                  id="profilePhoto"
+                />
+                <button class="edit-photo-btn">
+                  <i class="fas fa-camera"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="profile-info">
+              <div class="info-group">
+                <label>Name</label>
+                <input type="text" id="userName" value="Alex" readonly />
+              </div>
+
+              <div class="info-group">
+                <label>Age</label>
+                <input type="number" id="userAge" value="25" readonly />
+              </div>
+
+              <div class="info-group">
+                <label>Bio</label>
+                <textarea id="userBio" readonly>
+Love traveling, coffee, and good conversations. Looking for someone to explore the city with! 🌟</textarea
+                >
+              </div>
+
+              <div class="info-group">
+                <label>Interests</label>
+                <div class="interests-tags">
+                  <span class="interest-tag">Travel</span>
+                  <span class="interest-tag">Coffee</span>
+                  <span class="interest-tag">Photography</span>
+                  <span class="interest-tag">Music</span>
+                  <span class="interest-tag">Hiking</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-settings">
+              <div class="setting-group">
+                <label>Discovery Settings</label>
+                <div class="setting-item">
+                  <span>Maximum Distance</span>
+                  <div class="range-container">
+                    <input
+                      type="range"
+                      id="maxDistance"
+                      min="1"
+                      max="100"
+                      value="25"
+                    />
+                    <span class="range-value">25 km</span>
+                  </div>
+                </div>
+
+                <div class="setting-item">
+                  <span>Age Range</span>
+                  <div class="age-range">
+                    <input
+                      type="range"
+                      id="minAge"
+                      min="18"
+                      max="50"
+                      value="22"
+                    />
+                    <span>-</span>
+                    <input
+                      type="range"
+                      id="maxAge"
+                      min="18"
+                      max="50"
+                      value="35"
+                    />
+                    <span class="age-display">22 - 35</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Modal -->
+      <div class="chat-modal" id="chatModal">
+        <div class="chat-content">
+          <div class="chat-header">
+            <button class="back-btn" id="backToMatches">
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <h3>Messages</h3>
+            <button class="close-btn" id="closeChat">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+
+          <div class="chat-body">
+            <!-- Matches List -->
+            <div class="matches-list" id="matchesList">
+              <h4>New Matches</h4>
+              <div class="matches-grid" id="matchesGrid">
+                <!-- Matches will be dynamically generated -->
+              </div>
+
+              <h4>Messages</h4>
+              <div class="conversations-list" id="conversationsList">
+                <!-- Conversations will be dynamically generated -->
+              </div>
+            </div>
+
+            <!-- Chat Conversation -->
+            <div
+              class="chat-conversation"
+              id="chatConversation"
+              style="display: none"
+            >
+              <div class="conversation-header">
+                <button class="back-btn" id="backToList">
+                  <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="chat-user-info">
+                  <img src="" alt="User" id="chatUserPhoto" />
+                  <div class="chat-user-details">
+                    <h4 id="chatUserName">Sarah</h4>
+                    <span class="online-status">Online now</span>
+                  </div>
+                </div>
+                <button class="chat-options-btn">
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+              </div>
+
+              <div class="messages-container" id="messagesContainer">
+                <!-- Messages will be dynamically generated -->
+              </div>
+
+              <div class="message-input-container">
+                <input
+                  type="text"
+                  id="messageInput"
+                  placeholder="Type a message..."
+                />
+                <button class="send-btn" id="sendBtn">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Super Like Animation -->
+      <div class="super-like-animation" id="superLikeAnimation">
+        <i class="fas fa-star"></i>
+        <span>SUPER LIKE!</span>
+      </div>
+
+      <!-- Like/Pass Indicators -->
+      <div class="swipe-indicator like-indicator" id="likeIndicator">
+        <i class="fas fa-heart"></i>
+        <span>LIKE</span>
+      </div>
+
+      <div class="swipe-indicator pass-indicator" id="passIndicator">
+        <i class="fas fa-times"></i>
+        <span>PASS</span>
+      </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+      <div class="loading-content">
+        <div class="loading-logo">
+          <i class="fas fa-fire"></i>
+          <span>Tinder</span>
+        </div>
+        <div class="loading-spinner"></div>
+        <p>Finding people nearby...</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
