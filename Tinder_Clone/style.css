@@ -1056,6 +1056,7 @@ body {
   max-width: 480px;
   width: 90%;
   height: 85vh;
+  max-height: 85vh;
   display: flex;
   flex-direction: column;
   transform: translateY(50px);
@@ -1063,6 +1064,7 @@ body {
   box-shadow: var(--shadow-heavy);
   border: 1px solid rgba(0, 0, 0, 0.05);
   overflow: hidden;
+  position: relative;
 }
 
 .chat-modal.show .chat-content {
@@ -1117,6 +1119,8 @@ body {
   overflow-y: auto;
   flex: 1;
   background: var(--bg-secondary);
+  min-height: 0;
+  max-height: calc(85vh - 160px);
 }
 
 .matches-list h4 {
@@ -1249,6 +1253,8 @@ body {
   display: flex;
   flex-direction: column;
   background: var(--bg-primary);
+  height: 100%;
+  min-height: 0;
 }
 
 .conversation-header {
@@ -1330,6 +1336,8 @@ body {
   gap: var(--spacing-md);
   background: linear-gradient(to bottom, #fafbfc, #f8f9fa);
   scroll-behavior: smooth;
+  min-height: 0;
+  max-height: calc(100vh - 240px);
 }
 
 .messages-container::-webkit-scrollbar {
@@ -1390,6 +1398,10 @@ body {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   background: var(--bg-primary);
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
 }
 
 .message-input-container input {
@@ -1686,30 +1698,54 @@ body {
 
   .chat-content {
     height: 90vh;
+    max-height: 90vh;
   }
 
   .profile-content {
     max-height: 90vh;
   }
+
+  .messages-container {
+    max-height: calc(90vh - 200px);
+  }
+
+  .matches-list {
+    max-height: calc(90vh - 140px);
+  }
 }
 
 @media (max-width: 480px) {
   .app-header {
-    padding: 12px 16px;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .header-content {
+    min-height: 52px;
+    gap: var(--spacing-xs);
   }
 
   .header-btn {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
   }
 
   .logo {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .logo i {
-    font-size: 20px;
+    font-size: 24px;
   }
+
+  .notification-badge {
+    width: 16px;
+    height: 16px;
+    font-size: 8px;
+    top: -2px;
+    right: -2px;
+  }
+}
 
   .card-stack {
     padding: 12px;

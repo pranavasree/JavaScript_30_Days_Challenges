@@ -169,11 +169,27 @@ class TinderApp {
     document
       .getElementById("sendBtn")
       .addEventListener("click", () => this.sendMessage());
-    document
-      .getElementById("messageInput")
-      .addEventListener("keypress", (e) => {
-        if (e.key === "Enter") this.sendMessage();
+
+    const messageInput = document.getElementById("messageInput");
+    messageInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") this.sendMessage();
+    });
+
+    // Ensure input is visible when focused
+    messageInput.addEventListener("focus", () => {
+      setTimeout(() => {
+        this.ensureInputVisible();
+      }, 300); // Wait for mobile keyboard animation
+    });
+
+    // Handle mobile keyboard showing/hiding
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", () => {
+        setTimeout(() => {
+          this.ensureInputVisible();
+        }, 100);
       });
+    }
 
     // Profile settings
     document
@@ -648,8 +664,29 @@ class TinderApp {
       messagesContainer.appendChild(messageElement);
     });
 
-    // Scroll to bottom
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    // Scroll to bottom with smooth animation
+    this.scrollToBottom(messagesContainer);
+  }
+
+  scrollToBottom(container) {
+    // Use requestAnimationFrame for smooth scrolling
+    requestAnimationFrame(() => {
+      container.scrollTop = container.scrollHeight;
+    });
+  }
+
+  ensureInputVisible() {
+    const messageInput = document.getElementById("messageInput");
+    const inputContainer = messageInput.closest(".message-input-container");
+
+    if (inputContainer) {
+      // Ensure the input container is visible
+      inputContainer.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
+    }
   }
 
   sendMessage() {
@@ -683,6 +720,11 @@ class TinderApp {
 
     // Re-render messages
     this.renderMessages(conversation);
+
+    // Ensure input remains visible
+    setTimeout(() => {
+      this.ensureInputVisible();
+    }, 100);
 
     // Simulate response after 2-5 seconds
     setTimeout(() => {
@@ -724,6 +766,11 @@ class TinderApp {
     if (currentChatName === conversation.name) {
       this.renderMessages(conversation);
       conversation.unread = false;
+
+      // Ensure input remains visible after new message
+      setTimeout(() => {
+        this.ensureInputVisible();
+      }, 100);
     }
 
     this.updateChatBadge();
